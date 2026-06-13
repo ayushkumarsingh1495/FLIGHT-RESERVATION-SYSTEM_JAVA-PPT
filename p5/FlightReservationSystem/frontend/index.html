@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Reservation System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <div class="header-content">
+      <span class="plane-icon">✈</span>
+      <h1>Flight Reservation System</h1>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTAINER ========== -->
+  <main class="container">
+
+    <!-- ---- SEAT INFO CARD ---- -->
+    <div class="card seats-card">
+      <h2>🪑 Seat Availability</h2>
+      <div class="seat-info">
+        <div class="seat-box">
+          <span id="availableSeats" class="seat-count">--</span>
+          <span class="seat-label">Available</span>
+        </div>
+        <div class="seat-divider">/</div>
+        <div class="seat-box">
+          <span id="totalSeats" class="seat-count">--</span>
+          <span class="seat-label">Total Seats</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- BOOK A SEAT CARD ---- -->
+    <div class="card">
+      <h2>📋 Book a Seat</h2>
+      <div class="form-group">
+        <input
+          type="text"
+          id="passengerName"
+          placeholder="Passenger Name"
+          maxlength="50"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="number"
+          id="passengerId"
+          placeholder="Passenger ID (e.g. 101)"
+          min="1"
+        />
+      </div>
+      <button class="btn btn-primary" onclick="bookSeat()">
+        ✈ Book Seat
+      </button>
+      <!-- Success / error message shown here -->
+      <div id="bookMessage" class="message hidden"></div>
+    </div>
+
+    <!-- ---- BOOKED PASSENGERS CARD ---- -->
+    <div class="card">
+      <h2>👥 Booked Passengers</h2>
+      <button class="btn btn-secondary" onclick="loadPassengers()">
+        🔄 Refresh List
+      </button>
+      <div id="passengerList" class="passenger-list">
+        <p class="empty-msg">Click "Refresh List" to load passengers.</p>
+      </div>
+    </div>
+
+    <!-- ---- SEARCH PASSENGER CARD ---- -->
+    <div class="card">
+      <h2>🔍 Search Passenger</h2>
+      <div class="form-group">
+        <input
+          type="number"
+          id="searchId"
+          placeholder="Enter Passenger ID"
+          min="1"
+        />
+      </div>
+      <button class="btn btn-primary" onclick="searchPassenger()">
+        Search
+      </button>
+      <div id="searchResult" class="message hidden"></div>
+    </div>
+
+    <!-- ---- CANCEL BOOKING CARD ---- -->
+    <div class="card">
+      <h2>❌ Cancel Booking</h2>
+      <div class="form-group">
+        <input
+          type="number"
+          id="cancelId"
+          placeholder="Enter Passenger ID to cancel"
+          min="1"
+        />
+      </div>
+      <button class="btn btn-danger" onclick="cancelSeat()">
+        Cancel Booking
+      </button>
+      <div id="cancelMessage" class="message hidden"></div>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>Flight Reservation System &copy; 2025 &mdash; BTech Java OOP Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

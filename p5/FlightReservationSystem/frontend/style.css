@@ -1,0 +1,294 @@
+/* ============================================================
+   style.css — Flight Reservation System
+   Modern card layout, blue buttons, responsive, no frameworks
+   ============================================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+header {
+  background: linear-gradient(135deg, #1565c0, #1e88e5);
+  color: white;
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.4);
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.plane-icon {
+  font-size: 2rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Main Container ---------- */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* Make the seats card and passenger list span full width */
+.seats-card {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e3f0ff;
+}
+
+/* ---------- Seat Info ---------- */
+.seat-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.seat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seat-count {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1565c0;
+  line-height: 1;
+}
+
+.seat-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.seat-divider {
+  font-size: 2rem;
+  color: #ccc;
+  font-weight: 300;
+}
+
+/* ---------- Form Elements ---------- */
+.form-group {
+  margin-bottom: 12px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #d0d8e4;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  color: #333;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.15);
+}
+
+/* Remove number input arrows (optional cosmetic) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.5;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  margin-top: 4px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Blue primary button */
+.btn-primary {
+  background: #1e88e5;
+  color: white;
+  box-shadow: 0 3px 8px rgba(30, 136, 229, 0.3);
+}
+
+.btn-primary:hover {
+  background: #1565c0;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.4);
+}
+
+/* Grey secondary button */
+.btn-secondary {
+  background: #ecf3fb;
+  color: #1565c0;
+  border: 1.5px solid #c5d9f0;
+}
+
+.btn-secondary:hover {
+  background: #daeaf7;
+}
+
+/* Red danger button */
+.btn-danger {
+  background: #e53935;
+  color: white;
+  box-shadow: 0 3px 8px rgba(229, 57, 53, 0.3);
+}
+
+.btn-danger:hover {
+  background: #c62828;
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.4);
+}
+
+/* ---------- Messages (success / error) ---------- */
+.message {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.message.hidden {
+  display: none;
+}
+
+.message.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-left: 4px solid #43a047;
+}
+
+.message.error {
+  background: #ffebee;
+  color: #c62828;
+  border-left: 4px solid #ef5350;
+}
+
+.message.info {
+  background: #e3f2fd;
+  color: #1565c0;
+  border-left: 4px solid #1e88e5;
+}
+
+/* ---------- Passenger List ---------- */
+.passenger-list {
+  margin-top: 14px;
+}
+
+.passenger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background: #f5f9ff;
+  border-radius: 8px;
+  border-left: 4px solid #1e88e5;
+  font-size: 0.92rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.passenger-item .p-name {
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.passenger-item .p-id {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.empty-msg {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 8px 0;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* ---------- Fade-in animation ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive: stack to single column on small screens ---------- */
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .seat-count {
+    font-size: 2rem;
+  }
+}
